@@ -1,4 +1,4 @@
-import { Outlet, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 function Root() {
   return (
@@ -6,16 +6,13 @@ function Root() {
       <nav>
         <ul>
           <li>
-            <Link to={`contacts/1`}>Your name</Link>
+            <Link to={`xero`}>Xero</Link>
           </li>
           <li>
-            <Link to={`contacts/2`}>Your friend</Link>
+            <Link to={`hitt`}>HIIT</Link>
           </li>
         </ul>
       </nav>
-      <div>
-        <Outlet />
-      </div>
     </main>
   );
 }

@@ -3,14 +3,20 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { Root } from './routes/root';
-import { ErrorPage } from './routes/ErrorPage';
-import { Child } from './routes/Child';
+import { Root } from '@/routes/Root';
+import { ErrorPage } from '@/routes/ErrorPage';
+import { Child } from '@/routes/Child';
+import { XeroDashboard } from '@/routes/xero';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Root />, // we have links like /contacts/1
+    element: <Root />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/xero',
+    element: <XeroDashboard />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -18,12 +24,16 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <p>Some placeholder child here</p> },
           {
-            path: 'contacts/:id',
-            element: <Child />,
+            path: '/xero/:id',
+            element: <p>Xero2</p>,
           },
         ],
       },
     ],
+  },
+  {
+    path: '/hitt',
+    element: <p>HIIT</p>,
   },
 ]);
 
