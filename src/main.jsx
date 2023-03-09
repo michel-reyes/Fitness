@@ -10,29 +10,29 @@ import { Dashboard, Beginner } from '@/routes/xero';
 
 const router = createBrowserRouter([
   {
-    path: '/',
+    path: '/fitness/',
     element: <Root />,
     errorElement: <ErrorPage />,
   },
   {
-    path: '/xero',
+    path: '/fitness/xero',
     element: <Dashboard />,
     errorElement: <ErrorPage />,
   },
   {
-    path: '/xero/beginner',
+    path: '/fitness/xero/beginner',
     element: <Beginner />,
   },
   {
-    path: '/xero/intermediate',
+    path: '/fitness/xero/intermediate',
     element: <p>Xero2 for intermediate</p>,
   },
   {
-    path: '/xero/advanced',
+    path: '/fitness/xero/advanced',
     element: <p>Xero2 for advanced</p>,
   },
   {
-    path: '/hitt',
+    path: '/fitness/hitt',
     element: <p>HIIT</p>,
   },
 ]);
