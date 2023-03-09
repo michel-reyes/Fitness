@@ -117,7 +117,7 @@ function Beginner() {
             <ul style={{ display: 'flex' }}>
               {dayList.map((day, index) => (
                 <li key={index} className="ml-2">
-                  day {day}
+                  days {day}
                 </li>
               ))}
             </ul>
