@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Block, Button, Navbar, NavbarBackLink } from 'konsta/react';
 
 //------------------------------------------------------------------------------
 // SAMPLE DATA
@@ -109,23 +108,19 @@ function Beginner() {
 
   return (
     <>
-      <Navbar
-        title="My App"
-        left={<NavbarBackLink text="Back" onClick={handleBack} />}
-        subnavbar={
-          <nav className="overflow-hidden">
-            <ul style={{ display: 'flex' }}>
-              {dayList.map((day, index) => (
-                <li key={index} className="ml-2">
-                  days {day}
-                </li>
-              ))}
-            </ul>
-          </nav>
-        }
-      />
-      <Block>
-        <Block className="mb-32">
+      <div>
+        <nav className="overflow-hidden">
+          <ul style={{ display: 'flex' }}>
+            {dayList.map((day, index) => (
+              <li key={index} className="ml-2">
+                days {day}
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+      <div>
+        <div className="mb-32">
           <h2>Summary</h2>
           <ul>
             {new Array(20).fill(0).map((_, index) => (
@@ -135,11 +130,11 @@ function Beginner() {
               </li>
             ))}
           </ul>
-        </Block>
-      </Block>
-      <Block className="fixed bottom-0 right-0 left-0">
-        <Button>Start</Button>
-      </Block>
+        </div>
+      </div>
+      <footer className="fixed bottom-0 right-0 left-0">
+        <vutton>Start</vutton>
+      </footer>
     </>
   );
 }

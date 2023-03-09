@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { App, Page } from 'konsta/react';
 
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { Root } from '@/routes/Root';
@@ -39,10 +38,8 @@ const router = createHashRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App theme="material">
-      <Page>
-        <RouterProvider router={router} />
-      </Page>
-    </App>
+    <main>
+      <RouterProvider router={router} />
+    </main>
   </React.StrictMode>,
 );
