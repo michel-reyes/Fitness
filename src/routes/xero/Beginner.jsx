@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Block, Button, Navbar } from 'konsta/react';
+import { useNavigate } from 'react-router-dom';
+import { Block, Button, Navbar, NavbarBackLink } from 'konsta/react';
 
 //------------------------------------------------------------------------------
 // SAMPLE DATA
@@ -100,44 +101,44 @@ function Beginner() {
   const [day] = useState(1);
   const dayList = getDayList();
   const currentDay = getDay(day);
+  const navigate = useNavigate();
+
+  const handleBack = () => {
+    navigate(-1);
+  };
 
   return (
     <>
-      <Navbar title="My App" />
+      <Navbar
+        title="My App"
+        left={<NavbarBackLink text="Back" onClick={handleBack} />}
+        subnavbar={
+          <nav className="overflow-hidden">
+            <ul style={{ display: 'flex' }}>
+              {dayList.map((day, index) => (
+                <li key={index} className="ml-2">
+                  day {day}
+                </li>
+              ))}
+            </ul>
+          </nav>
+        }
+      />
       <Block>
-        <nav>
-          <ul style={{ display: 'flex' }}>
-            {dayList.map((day, index) => (
-              <li key={index} className="ml-2">
-                day {day}
+        <Block className="mb-32">
+          <h2>Summary</h2>
+          <ul>
+            {new Array(20).fill(0).map((_, index) => (
+              <li className="flex p-3" key={index}>
+                <p>{index} image</p>
+                <p>description</p>
               </li>
             ))}
           </ul>
-        </nav>
-        <article>
-          <h2>Summary</h2>
-          <ul>
-            <li style={{ display: 'flex' }}>
-              <p>image</p>
-              <p>description</p>
-            </li>
-            <li style={{ display: 'flex' }}>
-              <p>image</p>
-              <p>description</p>
-            </li>
-            <li style={{ display: 'flex' }}>
-              <p>image</p>
-              <p>description</p>
-            </li>
-            <li style={{ display: 'flex' }}>
-              <p>image</p>
-              <p>description</p>
-            </li>
-          </ul>
-        </article>
-        <div>
-          <Button>Start</Button>
-        </div>
+        </Block>
+      </Block>
+      <Block className="fixed bottom-0 right-0 left-0">
+        <Button>Start</Button>
       </Block>
     </>
   );
