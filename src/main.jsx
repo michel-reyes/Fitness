@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
+import { App, Page } from 'konsta/react';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Root } from '@/routes/Root';
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <App theme="material">
+      <Page>
+        <RouterProvider router={router} />
+      </Page>
+    </App>
   </React.StrictMode>,
 );

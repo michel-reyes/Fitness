@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Block, Button, Navbar } from 'konsta/react';
 
 //------------------------------------------------------------------------------
 // SAMPLE DATA
@@ -101,41 +102,44 @@ function Beginner() {
   const currentDay = getDay(day);
 
   return (
-    <div>
-      <nav>
-        <ul style={{ display: 'flex' }}>
-          {dayList.map((day, index) => (
-            <li key={index} className="ml-2">
-              day {day}
+    <>
+      <Navbar title="My App" />
+      <Block>
+        <nav>
+          <ul style={{ display: 'flex' }}>
+            {dayList.map((day, index) => (
+              <li key={index} className="ml-2">
+                day {day}
+              </li>
+            ))}
+          </ul>
+        </nav>
+        <article>
+          <h2>Summary</h2>
+          <ul>
+            <li style={{ display: 'flex' }}>
+              <p>image</p>
+              <p>description</p>
             </li>
-          ))}
-        </ul>
-      </nav>
-      <article>
-        <h2>Summary</h2>
-        <ul>
-          <li style={{ display: 'flex' }}>
-            <p>image</p>
-            <p>description</p>
-          </li>
-          <li style={{ display: 'flex' }}>
-            <p>image</p>
-            <p>description</p>
-          </li>
-          <li style={{ display: 'flex' }}>
-            <p>image</p>
-            <p>description</p>
-          </li>
-          <li style={{ display: 'flex' }}>
-            <p>image</p>
-            <p>description</p>
-          </li>
-        </ul>
-      </article>
-      <div>
-        <button>Start</button>
-      </div>
-    </div>
+            <li style={{ display: 'flex' }}>
+              <p>image</p>
+              <p>description</p>
+            </li>
+            <li style={{ display: 'flex' }}>
+              <p>image</p>
+              <p>description</p>
+            </li>
+            <li style={{ display: 'flex' }}>
+              <p>image</p>
+              <p>description</p>
+            </li>
+          </ul>
+        </article>
+        <div>
+          <Button>Start</Button>
+        </div>
+      </Block>
+    </>
   );
 }
 
