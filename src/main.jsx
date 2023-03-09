@@ -5,7 +5,7 @@ import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Root } from '@/routes/Root';
 import { ErrorPage } from '@/routes/ErrorPage';
-import { XeroDashboard } from '@/routes/xero';
+import { Dashboard, Beginner } from '@/routes/xero';
 
 const router = createBrowserRouter([
   {
@@ -15,12 +15,12 @@ const router = createBrowserRouter([
   },
   {
     path: '/xero',
-    element: <XeroDashboard />,
+    element: <Dashboard />,
     errorElement: <ErrorPage />,
   },
   {
     path: '/xero/beginner',
-    element: <p>Xero2 for beginners</p>,
+    element: <Beginner />,
   },
   {
     path: '/xero/intermediate',
