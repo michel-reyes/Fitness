@@ -13,6 +13,6 @@ module.exports = {
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
-    'comma-dangle': 'es2021',
+    'comma-dangle': 'e2021',
   },
 };

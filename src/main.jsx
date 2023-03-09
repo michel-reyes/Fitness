@@ -41,7 +41,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App theme="material">
       <Page>
-        <RouterProvider router={router} />
+        <RouterProvider
+          basename="https://michel-reyes.github.io/fitness/"
+          router={router}
+        />
       </Page>
     </App>
   </React.StrictMode>,
