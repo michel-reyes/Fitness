@@ -5,7 +5,7 @@ import './index.css';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { Root } from '@/routes/Root';
 import { ErrorPage } from '@/routes/ErrorPage';
-import { Dashboard, Beginner } from '@/routes/xero';
+import { Dashboard, Beginner } from '@/routes/xero/';
 
 const router = createHashRouter([
   {

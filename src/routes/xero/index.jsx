@@ -1,2 +1,6 @@
 export { Dashboard } from './Dashboard';
-export { Beginner } from './Beginner';
+export {
+  Beginner,
+  BeginnerContextProvider,
+  useBeginnerContext,
+} from './beginner';
