@@ -8,7 +8,7 @@ function HeaderBackButton() {
   };
 
   return (
-    <button className="bg-transparent" onClick={handleBack}>
+    <button className="bg-transparent p-4" onClick={handleBack}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"

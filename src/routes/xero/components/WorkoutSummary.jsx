@@ -3,13 +3,13 @@ import { fixRounds } from '@/utils';
 
 function WorkoutSummary() {
   const {
-    currentWorkout: { workouts },
+    currentDay: { workouts },
   } = useBeginnerContext();
 
   console.log({ workouts });
 
   return (
-    <div className="my-32 px-6">
+    <div className="my-32 mt-40 px-6">
       <h2 className="my-4 text-lg">Summary</h2>
       <ul className="list-none p-0">
         {workouts.map(({ title, image, sets, time, reps }) => {

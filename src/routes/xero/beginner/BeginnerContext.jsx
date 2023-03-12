@@ -8,13 +8,19 @@ const BeginnerContext = createContext();
 
 // ------------------ Provider ------------------
 function BeginnerContextProvider({ children }) {
-  const [weekDay, setWeekDay] = useState(externalWeekDay);
+  const [selectedDay, setSelectedDay] = useState(externalWeekDay);
   const visibleDays = days.slice(externalWeekDay - 1, externalWeekDay + 5);
-  const currentWorkout = visibleDays.find((day) => day.fixedDay === weekDay);
+  const currentDay = visibleDays.find((day) => day.fixedDay === selectedDay);
 
   return (
     <BeginnerContext.Provider
-      value={{ visibleDays, setWeekDay, currentWorkout, weekDay }}
+      value={{
+        visibleDays,
+        currentDay,
+        selectedDay,
+        setSelectedDay,
+        externalWeekDay,
+      }}
     >
       {children}
     </BeginnerContext.Provider>

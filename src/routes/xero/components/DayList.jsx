@@ -1,28 +1,38 @@
 import { useBeginnerContext } from '../beginner';
 
 function DayList() {
-  const { visibleDays, setWeekDay, weekDay } = useBeginnerContext();
+  const { visibleDays, setSelectedDay, selectedDay, externalWeekDay } =
+    useBeginnerContext();
 
-  const handleChangeDay = ({ fixedDay, day, week }) => {
-    console.log(fixedDay, day, week);
-    setWeekDay(fixedDay);
+  const handleChangeDay = ({ fixedDay }) => {
+    setSelectedDay(fixedDay);
   };
 
   return (
-    <ul className="flex justify-evenly">
-      {visibleDays.map(({ fixedDay, day, week }, index) => {
-        const isToday = weekDay === fixedDay;
-        console.log({ isToday, weekDay, fixedDay });
+    <ul className="flex justify-evenly px-6">
+      {visibleDays.map(({ fixedDay, day, week, isCompleted }, index) => {
+        const isSelectedDay = selectedDay === fixedDay;
+        const isToday = externalWeekDay === fixedDay;
+        const isTodayClass = isToday && 'border-orange-600';
+        const isCompletedClass = isCompleted
+          ? isToday
+            ? 'bg-orange-600'
+            : 'bg-slate-800'
+          : 'bg-transparent';
+
         return (
-          <li key={index} className="ml-2">
+          <li
+            key={index}
+            className={`mx-2 p-2 pb-0 flex border-b-2 ${
+              isSelectedDay ? 'border-slate-800' : 'border-transparent'
+            }`}
+          >
             <button
-              className="bg-transparent flex flex-col"
+              className="bg-transparent flex flex-col items-center p-2"
               onClick={() => handleChangeDay({ fixedDay, day, week })}
             >
               <span
-                className={`w-2 h-2 border-4  bg-slate-800 inline-block rounded-full ${
-                  isToday ? 'border-indigo-600' : 'border-transparent'
-                }`}
+                className={`w-3 h-3 border-2  border-slate-800 mb-1 inline-block rounded-full ${isCompletedClass} ${isTodayClass}`}
               ></span>
               {fixedDay}
             </button>
