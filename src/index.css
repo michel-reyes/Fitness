@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-  font-family: Poppins, Inter, system-ui, Helvetica, Arial, sans-serif;
+  font-family: Nunito, Inter, system-ui, Helvetica, Arial, sans-serif;
   line-height: 1.5;
-  font-weight: 600;
+  font-weight: 700;
 
   --bg: #ffffff:
 	--color: #213547;
