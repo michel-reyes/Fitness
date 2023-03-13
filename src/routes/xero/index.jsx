@@ -3,4 +3,5 @@ export {
   Beginner,
   BeginnerContextProvider,
   useBeginnerContext,
+  Workout,
 } from './beginner';

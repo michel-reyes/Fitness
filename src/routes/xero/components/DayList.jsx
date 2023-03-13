@@ -23,7 +23,7 @@ function DayList() {
         return (
           <li
             key={index}
-            className={`mx-2 p-2 pb-0 flex border-b-2 ${
+            className={`mx-2 p-2 pb-0 flex border-b-2 rounded-sm ${
               isSelectedDay ? 'border-slate-800' : 'border-transparent'
             }`}
           >

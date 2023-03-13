@@ -5,7 +5,7 @@ import './index.css';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
 import { Root } from '@/routes/Root';
 import { ErrorPage } from '@/routes/ErrorPage';
-import { Dashboard, Beginner } from '@/routes/xero/';
+import { Dashboard, Beginner, Workout } from '@/routes/xero/';
 
 const router = createHashRouter([
   {
@@ -21,6 +21,10 @@ const router = createHashRouter([
   {
     path: 'xero/beginner',
     element: <Beginner />,
+  },
+  {
+    path: 'xero/beginner/:day',
+    element: <Workout />,
   },
   {
     path: 'xero/intermediate',
@@ -41,5 +45,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <main>
       <RouterProvider router={router} />
     </main>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
