@@ -1,14 +1,37 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useBeginnerContext } from '@/context/BeginnerContext';
+import { useRange } from '@/hooks/useRange';
+import useSwipe from 'beautiful-react-hooks/useSwipe';
 
 import { fixRounds } from '@/utils';
 
 function Workout() {
-  const { currentDay } = useBeginnerContext();
-  const [workout, setworkout] = useState(0);
-  const { title, sets, time, reps, description, image } =
-    currentDay.workouts[workout];
+  const ref = useRef();
+  const options = {
+    threshold: 50,
+    preventDefault: false,
+    usePassiveEvents: true,
+  };
+  const swipeState = useSwipe(ref, options);
+
+  const {
+    currentDay: { workouts },
+  } = useBeginnerContext();
+  const [currentExercise, setCurrentExercise] = useRange(
+    0,
+    workouts.length - 1
+  );
+  const { title, sets, time, reps, image } = workouts[currentExercise];
   const rounds = fixRounds(sets, time, reps);
+
+  useEffect(() => {
+    if (swipeState.swiping) return;
+    if (swipeState.direction === 'left') {
+      setCurrentExercise(currentExercise + 1);
+    } else {
+      setCurrentExercise(currentExercise - 1);
+    }
+  }, [swipeState.swiping]);
 
   return (
     <main className="relative">
@@ -47,7 +70,10 @@ function Workout() {
         </button>
       </header>
 
-      <section className="absolute top-0 h-screen left-0 w-screen flex items-center justify-center">
+      <section
+        ref={ref}
+        className="absolute top-0 h-screen left-0 w-screen flex items-center justify-center"
+      >
         <img src={`./assets/${image}`} alt="sample" className="w-full" />
       </section>
 
