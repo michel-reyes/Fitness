@@ -47,10 +47,7 @@ function Workout() {
         </button>
       </header>
 
-      <section
-        className="absolute top-0 h-screen left-0 w-screen flex items-center justify-center"
-        onClick={handle}
-      >
+      <section className="absolute top-0 h-screen left-0 w-screen flex items-center justify-center">
         <img src={`./assets/${image}`} alt="sample" className="w-full" />
       </section>
 
