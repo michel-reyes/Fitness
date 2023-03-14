@@ -2,10 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createHashRouter, Outlet, RouterProvider } from 'react-router-dom';
 import { Root } from '@/routes/Root';
 import { ErrorPage } from '@/routes/ErrorPage';
 import { Dashboard, Beginner, Workout } from '@/routes/xero/';
+import { Summary } from '@/routes/xero/beginner';
 
 const router = createHashRouter([
   {
@@ -14,28 +15,27 @@ const router = createHashRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: 'xero',
+    path: '/xero',
     element: <Dashboard />,
     errorElement: <ErrorPage />,
   },
   {
-    path: 'xero/beginner',
+    path: '/xero/beginner/',
     element: <Beginner />,
+    children: [
+      { index: true, element: <Summary /> },
+      {
+        path: '/xero/beginner/:day',
+        element: <Workout />,
+      },
+    ],
   },
   {
-    path: 'xero/beginner/:day',
-    element: <Workout />,
-  },
-  {
-    path: 'xero/intermediate',
-    element: <p>Xero2 for intermediate</p>,
-  },
-  {
-    path: 'xero/advanced',
+    path: '/xero/advanced',
     element: <p>Xero2 for advanced</p>,
   },
   {
-    path: 'hitt',
+    path: '/hitt',
     element: <p>HIIT</p>,
   },
 ]);

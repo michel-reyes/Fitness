@@ -1,11 +1,6 @@
-import { useBeginnerContext } from '../beginner';
 import { fixRounds } from '@/utils';
 
-function WorkoutSummary() {
-  const {
-    currentDay: { workouts },
-  } = useBeginnerContext();
-
+function List({ workouts }) {
   return (
     <div className="my-32 mt-40 px-6">
       <h2 className="my-4 text-xl">Summary</h2>
@@ -37,4 +32,4 @@ function WorkoutSummary() {
   );
 }
 
-export { WorkoutSummary };
+export { List };

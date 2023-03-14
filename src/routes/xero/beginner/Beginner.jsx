@@ -1,24 +1,10 @@
-import {
-  DayList,
-  Footer,
-  Header,
-  HeaderBackButton,
-  WorkoutSummary,
-} from '../components';
+import { Outlet } from 'react-router-dom';
 import { BeginnerContextProvider } from './BeginnerContext';
-
-//------------------------------------------------------------------------------
-
-const TITLE = 'Xero beginner';
-
-//------------------------------------------------------------------------------
 
 function Beginner() {
   return (
     <BeginnerContextProvider>
-      <Header title={TITLE} back={<HeaderBackButton />} dayList={<DayList />} />
-      <WorkoutSummary />
-      <Footer />
+      <Outlet />
     </BeginnerContextProvider>
   );
 }

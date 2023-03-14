@@ -1,9 +1,9 @@
-import { useBeginnerContext } from '../beginner';
-
-function DayList() {
-  const { visibleDays, setSelectedDay, selectedDay, externalWeekDay } =
-    useBeginnerContext();
-
+function WorkoutDayPicker({
+  visibleDays,
+  setSelectedDay,
+  selectedDay,
+  externalWeekDay,
+}) {
   const handleChangeDay = ({ fixedDay }) => {
     setSelectedDay(fixedDay);
   };
@@ -43,4 +43,4 @@ function DayList() {
   );
 }
 
-export { DayList };
+export { WorkoutDayPicker };
