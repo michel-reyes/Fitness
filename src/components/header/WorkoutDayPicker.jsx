@@ -10,7 +10,8 @@ function WorkoutDayPicker({
 
   return (
     <ul className="flex justify-evenly px-6">
-      {visibleDays.map(({ fixedDay, day, week, isCompleted }, index) => {
+      {visibleDays.map(({ fixedDay, day, week, isCompleted }) => {
+        const keyIndex = `{${fixedDay}-${day}-${week}}`;
         const isSelectedDay = selectedDay === fixedDay;
         const isToday = externalWeekDay === fixedDay;
         const isTodayClass = isToday && 'border-orange-600';
@@ -22,7 +23,7 @@ function WorkoutDayPicker({
 
         return (
           <li
-            key={index}
+            key={keyIndex}
             className={`mx-2 p-2 pb-0 flex border-b-2 rounded-sm ${
               isSelectedDay ? 'border-slate-800' : 'border-transparent'
             }`}

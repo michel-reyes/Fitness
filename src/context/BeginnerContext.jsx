@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from 'react';
-import { days } from './data';
+import { days } from '@/data/xero_beginner';
 const externalWeekDay = 1;
 
 // ------------------ Context ------------------
@@ -33,7 +33,7 @@ const useBeginnerContext = () => {
 
   if (context === undefined) {
     throw new Error(
-      'useBeginnerContext must be used within a BeginnerContextProvider',
+      'useBeginnerContext must be used within a BeginnerContextProvider'
     );
   }
   return context;

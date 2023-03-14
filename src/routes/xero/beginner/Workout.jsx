@@ -1,6 +1,17 @@
+import { useState } from 'react';
+import { useBeginnerContext } from '@/context/BeginnerContext';
+
+import { fixRounds } from '@/utils';
+
 function Workout() {
+  const { currentDay } = useBeginnerContext();
+  const [workout, setworkout] = useState(0);
+  const { title, sets, time, reps, description, image } =
+    currentDay.workouts[workout];
+  const rounds = fixRounds(sets, time, reps);
+
   return (
-    <main className="relative ">
+    <main className="relative">
       <header className="flex fixed top-0 left-0 right-0 p-2 justify-between z-10 ">
         <button className="p-4 rounded-full bg-slate-200">
           <svg
@@ -36,19 +47,18 @@ function Workout() {
         </button>
       </header>
 
-      <section className="absolute top-0 h-screen left-0 w-screen flex items-center justify-center">
-        <img
-          src={`./assets/thumb_knee_pushups.gif`}
-          alt="sample"
-          className="w-full"
-        />
+      <section
+        className="absolute top-0 h-screen left-0 w-screen flex items-center justify-center"
+        onClick={handle}
+      >
+        <img src={`./assets/${image}`} alt="sample" className="w-full" />
       </section>
 
       <footer className="flex fixed bottom-0 left-0 right-0 px-6 py-2 flex-col ">
         {/* current workout name, time and reps */}
         <div className="mb-3">
-          <h1 className="text-2xl font-semibold">20x</h1>
-          <h2 className="text-xl font-semibold">Arm & Leg Lifts Left</h2>
+          <h1 className="text-3xl font-bold">{rounds}</h1>
+          <h2 className="text-2xl font-bold">{title}</h2>
         </div>
 
         {/* full workout time */}

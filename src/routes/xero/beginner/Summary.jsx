@@ -6,7 +6,7 @@ import {
   HeaderTitle,
   WorkoutDayPicker,
 } from '@/components';
-import { useBeginnerContext } from '@/routes/xero/';
+import { useBeginnerContext } from '@/context/BeginnerContext';
 
 const TITLE = 'Xero Beginner';
 
@@ -35,7 +35,7 @@ function Summary() {
       />
 
       <List workouts={workouts} />
-      <Footer />
+      <Footer selectedDay={selectedDay} />
     </>
   );
 }
